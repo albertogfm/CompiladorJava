@@ -10,8 +10,8 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class FileMan{
-    public static boolean leerArchivo(String nombreAr) {
-        File file = new File(".\\files\\read\\"+nombreAr+".asc");
+    public boolean leerArchivo(String nombreAr) {
+        File file = new File(".\\files\\read\\"+nombreAr+".ASC");
         if(!file.exists()){
                 System.out.println("\tNo se encontró el archivo");
                 return false;
@@ -21,6 +21,9 @@ public class FileMan{
             while (sc.hasNextLine()) {
 
                 String linea = sc.nextLine();//Lee el contenido del archivo
+                
+        
+                
                 System.out.println(linea);
                 //método para identificar error en cada línea
 
@@ -32,5 +35,19 @@ public class FileMan{
             System.out.println("Scanner unable to use");
         }
         return true;
+    }
+    public void escribirArchivo(String nombre){
+        try {
+            File file = new File(".\\files\\output\\" + nombre + ".txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.append( ",");
+            bw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
