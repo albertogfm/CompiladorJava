@@ -11,27 +11,31 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class FileMan{
-    public ArrayList<String> leerArchivo(String nombreAr) {
+
+    public ArrayList<String> lineasArchivoASC = new ArrayList<>();
+    public ArrayList<String> opCodesFile = new ArrayList<>();
+
+
+    public boolean leerArchivo(String nombreAr) {
         File file = new File(".\\files\\read\\"+nombreAr+".ASC");
-        ArrayList<String> codeLines = new ArrayList<>();
         if(!file.exists()){
                 System.out.println("\tNo se encontró el archivo");
-                return null;
+                return false;
         }
         try {
-            
+
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
 
                 String linea = sc.nextLine();//Lee el contenido del archivo
-                codeLines.add(linea);
-            }        
+                this.lineasArchivoASC.add(linea);
+            }
             sc.close();
-            
+
         }catch (FileNotFoundException e) {
             System.out.println("Scanner unable to use");
         }
-        return codeLines;
+        return true;
     }
     // public void escribirArchivo(String nombre){
     //     try {
@@ -58,15 +62,15 @@ public class FileMan{
             while (sc.hasNextLine()) {
 
                 String linea = sc.nextLine();//Lee el contenido del archivo
-                String[] nemonYopcode = linea.split(",");    
-                
+                String[] nemonYopcode = linea.split(",");
+
                 if(nemon.equals(nemonYopcode[0])){
                     sc.close();
                     return nemonYopcode[1];
                 }
-            }        
+            }
             sc.close();
-            
+
         }catch (FileNotFoundException e) {
             System.out.println("Scanner unable to use");
         }
