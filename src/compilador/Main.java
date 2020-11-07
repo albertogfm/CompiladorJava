@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package compilador;
 
 import filemanagment.FileMan;
@@ -12,4 +13,4 @@ public class Main{
         }
         
     }
-}
+=======
