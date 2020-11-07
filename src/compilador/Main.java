@@ -13,6 +13,6 @@ import filemanagment.FileMan;
 public class Main{
     public static void main(String[] args) {
         FileMan trataFiles = new FileMan();
-        trataFiles.leerArchivo("ERROR");
+        System.out.println(trataFiles.readOpcodes("mul","INH"));
     }
 }
