@@ -1,4 +1,4 @@
-package filemanagment;
+package src.filemanagment;
 
 import java.io.BufferedWriter;
 import java.io.File;
